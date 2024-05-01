@@ -5,11 +5,11 @@ const Loading = () => {
 
     const loader={
         animation: {
-            scale: [1, 1.1]
-        },
-        transition: {
-            duration: 2,
-            yoyo: 10
+            scale: 1.1,
+            transition: {
+                duration: .5,
+                yoyo: Infinity,
+            }
         }
     }
   return (
@@ -18,7 +18,7 @@ const Loading = () => {
         <motion.p 
         variants={loader}
         animate="animation"
-        transition="transition"
+        
         className='text-[3vmax] font-bold text-[#bfcdde]'>Loading...</motion.p>
     </div>
   )

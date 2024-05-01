@@ -15,9 +15,9 @@ const Nav = () => {
     whileHover={{ scale: 1.1 }}
     ><FaEthereum className="text-amber-500"/></motion.span></p>
           <ul className="flex items-center justify-center gap-5">
-              <Link to='/'><li className="text-[1.1vmax] font-medium cursor-pointer text-[#bfcdde]">Home</li></Link>
-              <li className="text-[1.1vmax] font-medium cursor-pointer text-[#bfcdde]">Compare</li>
-              <li className="text-[1.1vmax] font-medium cursor-pointer text-[#bfcdde]">Watchlist</li>
+              <Link to='/'><li className="text-[1.5vmax] font-medium cursor-pointer text-[#bfcdde]">Home</li></Link>
+              <li className="text-[1.5vmax] font-medium cursor-pointer text-[#bfcdde]">Compare</li>
+              <li className="text-[1.5vmax] font-medium cursor-pointer text-[#bfcdde]">Watchlist</li>
           </ul>
       </div>
       <Outlet/>

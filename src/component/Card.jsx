@@ -27,8 +27,8 @@ function Card({data,key}) {
                     </span>
                     </p>
                 </div>
-                <p className='font-semibold text-[.9vmax] text-[#bfcdde]'>Total Volume: <span>{data.total_volume}</span></p>
-                <p className='font-semibold text-[.9vmax] text-[#bfcdde]'>Market Cap: <span>${data.market_cap}</span></p>
+                <p className='font-semibold text-[1vmax] text-[#bfcdde]'>Total Volume: <span>{data.total_volume}</span></p>
+                <p className='font-semibold text-[1vmax] text-[#bfcdde]'>Market Cap: <span>${data.market_cap}</span></p>
             </div>
         </motion.div>
     </Link>

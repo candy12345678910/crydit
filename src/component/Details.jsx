@@ -16,7 +16,11 @@ const Details = () => {
     //         const { data }=await axios.get(url+`${id}`)
     //         setDetails(data)
     //     }
+    //     try{
     //     getDetails()
+    //     }catch(err){
+    //         console.log("Details has too mny clicks")
+    //     }
     // },[])
 
 
@@ -29,7 +33,7 @@ const CoinDetails=({details})=>{
     const [price, setPrice]=useState("USD")
 
     return(
-        <div className='bg-[#040920] flex flex-col h-[auto] items-center py-10'>
+        <div className='bg-[#040920] flex flex-col h-[100%] items-center py-10'>
             
             <div>
                 <label className='font-semibold text-[1.5vmax] text-white' for="type" >Currency: </label>
@@ -66,7 +70,7 @@ const CoinDetails=({details})=>{
                     </div>
                 </div>
 
-                <Chart price={ price }/>
+                <Chart price={ price } color="orange"/>
 
             </div>
         </div>

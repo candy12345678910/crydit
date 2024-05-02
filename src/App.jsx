@@ -9,6 +9,7 @@ function App() {
         <Route path="/" element={<Nav/>}>
           <Route index element={<Home/>}/>
           <Route path="details/:id" element={<Details/>} />
+          <Route path="compare" element={<h1>Compare Page</h1>}/>
         </Route>
       </Routes>
     </>

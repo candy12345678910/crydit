@@ -23,7 +23,7 @@ function Card({data,key}) {
             <div className='flex flex-col gap-2'>
                 <div className=' justify-between'>
                     <p className='flex gap-[10px] font-semibold text-[1.5vmax]  text-white'>Price: <span className={`${data.price_change_percentage_24h < 0 ? "text-red-500" : "text-green-400"}`}>${data.current_price.toFixed(2)}</span>
-                    <span className={`flex items-center justify-center font-medium text-[1vmax] ${data.price_change_percentage_24h < 0 ? "text-red-500" : "text-green-400"}` }>{data.price_change_percentage_24h<0?<FaCaretDown />:<FaCaretUp />}{Math.round(data.price_change_percentage_24h)}%
+                    <span className={`flex items-center justify-center font-medium text-[1vmax] ${data.price_change_percentage_24h < 0 ? "text-red-500" : "text-green-400"}` }>{data.price_change_percentage_24h<0?<FaCaretDown />:<FaCaretUp />}{Math.abs(Math.round(data.price_change_percentage_24h))}%
                     </span>
                     </p>
                 </div>

@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 
 function Home() {
     const url=import.meta.env.VITE_EXCHANGE
+    const [message,setMessage]=useState(false)
     const [data,setData]=useState(null)
     const [range, setRange]=useState(0)
     const [ search, setSearch]=useState("?")
@@ -15,15 +16,16 @@ function Home() {
         rangeSet.push(i)
     }
     useEffect(()=>{
-        // const getData=async ()=>{
-        //     try{
-        //         const { data }=await axios.get(url)
-        //         setData(data)
-        //     }catch(err){
-        //         console.log("Error fetching data: ",err)
-        //     }
-        // }
-        // getData()
+        const getData=async ()=>{
+            try{
+                const { data }=await axios.get(url)
+                setData(data)
+            }catch(err){
+                console.log("Error fetching data")
+                setMessage(!message)
+            }
+        }
+        getData()
         setData(info)
     },[])
     useEffect(()=>{
@@ -33,6 +35,11 @@ function Home() {
     <>
     {!data?<Loading/>:
         <div className='py-10 bg-[#040920] flex flex-col justify-center items-center gap-5'>
+            { message?<motion.div 
+            initial={{opacity: 0, scale: .5}}
+            animate={{ opacity: 1, scale: 1}}
+            transition={{ duration: .4 }}
+            className='text-[#d34040] font-semibold text-[1.5vmax] flex flex-col items-center justify-center'><p>Warning: This is Old Data</p><p>Wait for a Minute to Get The Real Time Data</p></motion.div>:<></>}
             <input type="type" className="p-5 text-[#bfcdde]  bg-[#18254a] h-[3vmax] w-[70%] text-[1.5vmax] outline-none rounded-[50px]" placeholder="Search" onChange={(e)=>setSearch(e.target.value)}/>
             
             <motion.div className='px-2 py-2 flex item-center justify-evenly gap-6 flex-row flex-wrap  bg-[#040920]'>
@@ -48,7 +55,6 @@ function Home() {
             </motion.div>
             <ul className="flex  gap-5">
                 <li className='text-[1.2vmax] font-medium px-3 py-1 bg-[#b8d5f7] rounded-md text-[#2e3133] cursor-pointer hover:bg-blue-800 hover:text-white' onClick={() => setRange(0)}>1</li>
-
 
                 <li className='text-[1.2vmax] font-medium px-3 py-1 bg-[#b8d5f7] rounded-md text-[#2e3133] cursor-pointer hover:bg-blue-800 hover:text-white' onClick={()=>setRange(20)}>2</li>
 

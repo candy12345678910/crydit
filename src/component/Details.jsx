@@ -11,19 +11,18 @@ const Details = () => {
     const { id }=useParams()
     const [ details,setDetails]=useState(Alldata)
     const url=import.meta.env.VITE_COINSID
-    // useEffect(()=>{
-    //     async function getDetails(){
-    //         const { data }=await axios.get(url+`${id}`)
-    //         setDetails(data)
-    //     }
-    //     try{
-    //     getDetails()
-    //     }catch(err){
-    //         console.log("Details has too mny clicks")
-    //     }
-    // },[])
-
-
+    useEffect(()=>{
+        async function getDetails(){
+            try{
+                const { data }=await axios.get(url+`${id}`)
+                setDetails(data)
+            }catch(err){
+                console.log("Details has too mny clicks")
+                setDetails(null)
+            }
+        }
+        getDetails()
+    },[])
     return (
         <motion.div>{!details?<Loading/>:<CoinDetails details={ details }/>}</motion.div>
     )
@@ -41,6 +40,7 @@ const CoinDetails=({details})=>{
                     <option >USD</option>
                     {
                         Object.keys(details.market_data.current_price).map((i)=><option>{i.toUpperCase()}</option>)
+                        // Object.keys(details.market_data.current_price).filter(i=>i.toUpperCase()!=price).map((i)=><option>{i.toUpperCase()}</option>)
                     }
                 </select>
             </div>
@@ -57,7 +57,7 @@ const CoinDetails=({details})=>{
                         <p className='font-semibold text-[2vmax] text-white'>#{details.market_cap_rank}</p>
                     </div>
                     <p className='font-semibold text-[3vmax] text-white'>
-                        {details.market_data.current_price[price.toLowerCase()].toFixed(2)} <span className='text-[1.3vmax]'>{price.toUpperCase()}</span> <span className={`flex item-center gap-2 font-medium text-[1.4vmax] ${details.market_data.price_change_percentage_24h<0?"text-red-500" : "text-green-400"}`}>{details.market_data.price_change_percentage_24h<0?<FaCaretDown />:<FaCaretUp />}{details.market_data.price_change_percentage_24h.toFixed(1)} %</span></p>
+                        {details.market_data.current_price[price.toLowerCase()].toFixed(2)} <span className='text-[1.3vmax]'>{price.toUpperCase()}</span> <span className={`flex item-center gap-2 font-medium text-[1.4vmax] ${details.market_data.price_change_percentage_24h<0?"text-red-500" : "text-green-400"}`}>{details.market_data.price_change_percentage_24h<0?<FaCaretDown />:<FaCaretUp />}{Math.abs(details.market_data.price_change_percentage_24h.toFixed(1))} %</span></p>
                     
                     <p className='font-semibold text-[1.2vmax] text-[#bfcdde]'>Market Cap:  {details.market_data.market_cap[price.toLowerCase()]} <span className='font-medium text-[1vmax] text-[#bfcdde]'>{price.toUpperCase()}</span></p>
                     

@@ -9,23 +9,26 @@ function Chart( { price } ) {
     const { id }=useParams()
     const [chart,setChart]=useState(null)
     const [day, setDay]=useState(1)
+    const [message,setMessage]=useState("Chart is Loading...")
 
     let url=import.meta.env.VITE_COINSID+`${id}`+"/market_chart?vs_currency="+`${price.toLowerCase()}`+"&days="+`${day}`
 
     useEffect(()=>{
       async function chartGet(){
-        const { data }=await axios.get(url)
-        setChart(data)
-        // console.log("In main useEffect: ",chart)
+        try{
+          const { data }=await axios.get(url)
+          setChart(data)
+          // console.log("In main useEffect: ",chart
+        }catch(err){
+          console.log("Too many clicks and  am poor")
+          setChart(null)
+          setMessage("Wait for a minute...")
+        }
       }
-      try{
-        chartGet()
-      }catch(err){
-        // console.log("Too many clicks and  am poor")
-      }
+      chartGet()
+
     },[day])
-
-
+    
   return (
     <>
     {
@@ -52,12 +55,12 @@ function Chart( { price } ) {
           <li className="text-[1.1vmax] font-medium cursor-pointer text-[#bfcdde] hover:text-[#F7931A]" onClick={()=>setDay(90)}>3m</li>
           <li className="text-[1.1vmax] font-medium cursor-pointer text-[#bfcdde] hover:text-[#F7931A]" onClick={()=>setDay(365)}>1y</li>
         </ul>
-        <ChartGraph chart={ chart } day={ day } color="orange"/>
+        <ChartGraph chart={ chart } day={ day }/>
 
       </motion.div>
       :
       <div className="py-[1vmax] bg-[#040920] w-[100%] h-[100%]">
-        <motion.h1 className='text-center text-[2.1vmax] font-medium text-[#bfcdde] z-30'>Chart is Loading...</motion.h1>
+        <motion.h1 className='text-center text-[2.1vmax] font-medium text-[#bfcdde] z-30'>{message}</motion.h1>
       </div>
     }
     </>

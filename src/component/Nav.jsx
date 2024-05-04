@@ -24,7 +24,7 @@ const Nav = () => {
 
               <NavLink to='/compare' className={({isActive})=>`text-[1.3vmax] font-medium cursor-pointer ${isActive?"text-amber-500":"text-[#bfcdde]"}`}>Compare</NavLink>
 
-              <li className="text-[1.3vmax] py-2 px-3 bg-[#538fff] rounded-md font-medium cursor-pointer text-[#e9f3ff] hover:bg-[#4078df]">Watchlist</li>
+              {/* <li className="text-[1.3vmax] py-2 px-3 bg-[#538fff] rounded-md font-medium cursor-pointer text-[#e9f3ff] hover:bg-[#4078df]">Watchlist</li> */}
           </ul>
       </div>
       <Outlet/>

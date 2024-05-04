@@ -20,7 +20,7 @@ function Chart( { price } ) {
           setChart(data)
           // console.log("In main useEffect: ",chart
         }catch(err){
-          console.log("Too many clicks and  am poor")
+          console.log("Too many clicks")
           setChart(null)
           setMessage("Wait for a minute...")
         }

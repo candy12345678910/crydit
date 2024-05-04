@@ -17,7 +17,7 @@ const Details = () => {
                 const { data }=await axios.get(url+`${id}`)
                 setDetails(data)
             }catch(err){
-                console.log("Details has too mny clicks")
+                // console.log("Details has too mny clicks")
                 setDetails(null)
             }
         }

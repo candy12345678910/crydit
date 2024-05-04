@@ -22,7 +22,7 @@ function Home() {
                 setData(data)
             }catch(err){
                 console.log("Error fetching data")
-                setMessage(!message)
+                setMessage(true)
             }
         }
         getData()

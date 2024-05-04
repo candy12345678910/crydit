@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 import axios from 'axios';
 import FlatCard from './FlatCard';
 import Loading from './Loading';
-import ChartGraph from './ChartGraph';
 import CompareGraph from './CompareGraph';
 import { info } from './info';
 import { Graph, Graph2 } from './GraphData';

@@ -100,7 +100,7 @@ const Compare = () => {
             initial={{opacity: 0, scale: .5}}
             animate={{ opacity: 1, scale: 1}}
             transition={{ duration: .4 }}
-            className='text-[#d34040] font-semibold text-[1.5vmax] flex flex-col items-center justify-center'><p>Warning!! This is Old Data</p><p>Refresh The Page after a Minute to Get The Real Time Data</p></motion.div>:<></>}
+            className='text-[#d34040] font-semibold text-[1.5vmax] flex flex-col items-center justify-center'><p>Warning!! This is Old Data</p><p>Refresh The Page After a Minute to Get The Real Time Data</p></motion.div>:<></>}
           <div className='flex flex-col gap-5'>
             <FlatCard data={data} coin={firstCoinIndex} setCoin={setFirstCoinIndex}/>
             <FlatCard data={data} coin={secondCoinIndex} setCoin={setsecondCoinIndex}/>

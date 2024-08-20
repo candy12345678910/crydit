@@ -32,7 +32,7 @@ const CoinDetails=({details})=>{
     const [price, setPrice]=useState("USD")
 
     return(
-        <div className='bg-[#040920] flex flex-col h-[100%] items-center py-10'>
+        <div className='bg-[#040920] flex flex-col min-h-screen items-center py-10'>
             
             <div>
                 <label className='font-semibold text-[1.5vmax] text-white' for="type" >Currency: </label>

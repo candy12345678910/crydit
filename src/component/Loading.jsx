@@ -1,27 +1,12 @@
-import React from 'react'
-import { delay, motion } from "framer-motion"
+import React from "react";
+import "../index.css"
 
-const Loading = () => {
-
-    const loader={
-        animation: {
-            scale: 1.1,
-            transition: {
-                duration: .5,
-                yoyo: Infinity,
-            }
-        }
-    }
-  return (
-    <div 
-    className='flex items-center justify-center h-[100vh] bg-[#070d1f]'>
-        <motion.p 
-        variants={loader}
-        animate="animation"
-        
-        className='text-[3vmax] font-bold text-[#bfcdde]'>Loading...</motion.p>
-    </div>
-  )
+const Loader=()=>{
+    return(
+        <div className="h-[100vh] bg-[#111725] flex justify-center items-center">
+            <span className="loader"></span>
+        </div>
+    )
 }
 
-export default Loading
+export default Loader
